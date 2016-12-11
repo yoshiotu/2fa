@@ -11,7 +11,7 @@ import (
 	"io/ioutil"
 	"net/url"
 
-	qr "code.google.com/p/rsc/qr"
+	qr "github.com/mdp/rsc/qr" // updated to a valid path
 	dgoogauth "github.com/dgryski/dgoogauth"
 )
 
