@@ -12,7 +12,7 @@ import (
 	"net/url"
 
 	dgoogauth "github.com/dgryski/dgoogauth"
-	qr "github.com/rsc/qr"
+	qr "rsc.io/qr"
 )
 
 const (
@@ -25,7 +25,7 @@ func main() {
 	secret := []byte{'H', 'e', 'l', 'l', 'o', '!', 0xDE, 0xAD, 0xBE, 0xEF}
 
 	// Generate random secret instead of using the test value above.
-	// secret := make([]byte, 6)
+	// secret := make([]byte, 10)
 	// _, err := rand.Read(secret)
 	// if err != nil {
 	//	panic(err)
