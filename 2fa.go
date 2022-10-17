@@ -8,8 +8,8 @@ import (
 	// "crypto/rand"
 	"encoding/base32"
 	"fmt"
-	"io/ioutil"
 	"net/url"
+	"os"
 
 	dgoogauth "github.com/dgryski/dgoogauth"
 	qr "rsc.io/qr"
@@ -54,8 +54,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	b := code.PNG()
-	err = ioutil.WriteFile(qrFilename, b, 0600)
+
+	err = os.WriteFile(qrFilename, code.PNG(), 0600)
 	if err != nil {
 		panic(err)
 	}
@@ -72,10 +72,10 @@ func main() {
 	}
 
 	for {
-		var token string
 		fmt.Printf("Please enter the token value (or q to quit): ")
-		fmt.Scanln(&token)
 
+		var token string
+		fmt.Scanln(&token)
 		if token == "q" {
 			break
 		}
@@ -93,5 +93,4 @@ func main() {
 
 		fmt.Println("Authenticated!")
 	}
-	return
 }
