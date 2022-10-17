@@ -64,6 +64,8 @@ func main() {
 
 	// The OTPConfig gets modified by otpc.Authenticate() to prevent passcode replay, etc.,
 	// so allocate it once and reuse it for multiple calls.
+	// *Caution*: if you have a scale-out service, this code won't detect replays to different
+	// server replicas.
 	otpc := &dgoogauth.OTPConfig{
 		Secret:      secretBase32,
 		WindowSize:  3,
